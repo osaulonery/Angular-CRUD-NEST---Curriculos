@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 30px;
+}

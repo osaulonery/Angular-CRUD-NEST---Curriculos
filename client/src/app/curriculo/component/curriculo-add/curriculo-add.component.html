@@ -1,0 +1,66 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="primeiroFormGroup">
+    <form [formGroup]="primeiroFormGroup">
+      <ng-template matStepLabel>Nome Completo</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome Completo</mat-label>
+        <input
+          matInput
+          placeholder="Nome completo"
+          formControlName="firstCtrl"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="segundoFormGroup">
+    <form [formGroup]="segundoFormGroup">
+      <ng-template matStepLabel>CPF</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="000.000.000-00"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="terceiroFormGroup">
+    <form [formGroup]="terceiroFormGroup">
+      <ng-template matStepLabel>Data de Nascimetno</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Finalizado!</ng-template>
+    <p>Obrigado por enviar seu currículo.</p>
+    <div>
+      <button mat-button matStepperPrevious (click)="voltarHome()">
+        Voltar
+      </button>
+      <button mat-button (click)="stepper.reset()">Reiniciar</button>
+    </div>
+  </mat-step>
+</mat-stepper>
