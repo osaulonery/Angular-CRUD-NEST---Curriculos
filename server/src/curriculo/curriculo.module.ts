@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CurriculoService } from './curriculo.service';
 import { CurriculoController } from './curriculo.controller';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { CurriculoRepository } from './repository/curriculo.repository';
 
 @Module({
   controllers: [CurriculoController],
-  providers: [CurriculoService]
+  providers: [CurriculoService, PrismaService, CurriculoRepository],
 })
 export class CurriculoModule {}
