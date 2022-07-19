@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CurriculoService } from '../curriculo.service';
 
 @Component({
   selector: 'app-curriculo-add',
@@ -9,36 +10,45 @@ import { Router } from '@angular/router';
 })
 export class CurriculoAddComponent implements OnInit {
   primeiroFormGroup = this.formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    umCtrl: ['', Validators.required],
   });
   segundoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    doisCtrl: ['', Validators.required],
   });
   terceiroFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    tresCtrl: ['', Validators.required],
   });
   quartoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    quatroCtrl: ['', Validators.required],
   });
   quintoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    cincoCtrl: ['', Validators.required],
   });
   sextoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    seisCtrl: ['', Validators.required],
   });
-  sétimoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+  setimoFormGroup = this.formBuilder.group({
+    seteCtrl: ['', Validators.required],
   });
   oitavoFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
+    oitoCtrl: ['', Validators.required],
   });
   isLinear = false;
+  selected = '';
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private curriculo: CurriculoService
+  ) {}
 
   ngOnInit(): void {}
 
   voltarHome(): void {
     this.route.navigate(['/home']);
+  }
+
+  criaCurriculo(): void {
+    this.curriculo.mostraMsg('Currículo adicionado com sucesso');
   }
 }
