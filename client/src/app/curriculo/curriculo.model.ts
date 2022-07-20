@@ -1,8 +1,8 @@
 export interface Curriculo {
   id?: string;
-  nome: string;
+  name: string;
   cpf: number;
-  datanasc: number;
+  datanasc: string;
   email: string;
   telefone: number;
   escolaridade: string;

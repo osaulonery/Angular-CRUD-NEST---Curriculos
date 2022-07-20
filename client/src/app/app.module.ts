@@ -1,9 +1,13 @@
 //MODULES
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+
+//Parada do preço
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -32,6 +36,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+
+import { NgxMaskModule } from 'ngx-mask';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -65,8 +73,14 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     HttpClientModule,
     MatSelectModule,
+    NgxMaskModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

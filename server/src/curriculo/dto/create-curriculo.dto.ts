@@ -1,5 +1,4 @@
 import {
-  IsDateString,
   IsEmail,
   IsNotEmpty,
   IsNumber,
@@ -22,8 +21,8 @@ export class CreateCurriculoDto {
   cpf: number;
 
   @IsNotEmpty()
-  @IsDateString()
-  datanasc: Date;
+  @IsString()
+  datanasc: string;
 
   @IsNotEmpty()
   @IsEmail()

@@ -14,7 +14,7 @@ model Curriculo {
   id             Int          @id @default(autoincrement())
   name           String       @unique
   cpf            Int          @unique
-  datanasc       DateTime     
+  datanasc       String     
   email          String       @unique
   telefone       Int
   escolaridade   String

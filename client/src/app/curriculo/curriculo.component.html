@@ -6,27 +6,57 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- ID Column -->
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="id" class="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
       <td mat-cell *matCellDef="let row">{{ row.id }}</td>
     </ng-container>
 
     <!-- Nome Column -->
-    <ng-container matColumnDef="nome">
+    <ng-container matColumnDef="name" class="nome">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
-      <td mat-cell *matCellDef="let row">{{ row.nome }}%</td>
+      <td mat-cell *matCellDef="let row">{{ row.name }}%</td>
     </ng-container>
 
     <!-- CPF Column -->
-    <ng-container matColumnDef="cpf">
+    <ng-container matColumnDef="cpf" class="cpf">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>CPF</th>
       <td mat-cell *matCellDef="let row">{{ row.cpf }}</td>
     </ng-container>
 
     <!-- Data de Nascimento Column -->
-    <ng-container matColumnDef="datanasc">
+    <ng-container matColumnDef="datanasc" class="datanasc">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Data Nascimento</th>
       <td mat-cell *matCellDef="let row">{{ row.datanasc }}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email" class="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+
+    <!-- Telefone Column -->
+    <ng-container matColumnDef="telefone" class="telefone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefone</th>
+      <td mat-cell *matCellDef="let row">{{ row.telefone }}</td>
+    </ng-container>
+
+    <!-- Escolaridade Column -->
+    <ng-container matColumnDef="escolaridade" class="escolaridade">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Escolaridade</th>
+      <td mat-cell *matCellDef="let row">{{ row.escolaridade }}</td>
+    </ng-container>
+
+    <!-- Funcao Column -->
+    <ng-container matColumnDef="funcao" class="funcao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Função</th>
+      <td mat-cell *matCellDef="let row">{{ row.funcao }}</td>
+    </ng-container>
+
+    <!-- Competencias Column -->
+    <ng-container matColumnDef="competencias" class="competencias">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Competências</th>
+      <td mat-cell *matCellDef="let row">{{ row.competencias }}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

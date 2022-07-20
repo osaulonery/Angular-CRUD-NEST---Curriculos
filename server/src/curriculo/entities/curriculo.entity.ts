@@ -4,7 +4,7 @@ export class CurriculoEntity implements Curriculo {
   id: number;
   name: string;
   cpf: number;
-  datanasc: Date;
+  datanasc: string;
   email: string;
   telefone: number;
   escolaridade: string;

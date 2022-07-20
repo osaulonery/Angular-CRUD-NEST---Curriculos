@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CpfValidator } from '../../validators/cpf-validator';
 import { CurriculoService } from '../curriculo.service';
 
 @Component({
@@ -9,30 +10,7 @@ import { CurriculoService } from '../curriculo.service';
   styleUrls: ['./curriculo-add.component.css'],
 })
 export class CurriculoAddComponent implements OnInit {
-  primeiroFormGroup = this.formBuilder.group({
-    umCtrl: ['', Validators.required],
-  });
-  segundoFormGroup = this.formBuilder.group({
-    doisCtrl: ['', Validators.required],
-  });
-  terceiroFormGroup = this.formBuilder.group({
-    tresCtrl: ['', Validators.required],
-  });
-  quartoFormGroup = this.formBuilder.group({
-    quatroCtrl: ['', Validators.required],
-  });
-  quintoFormGroup = this.formBuilder.group({
-    cincoCtrl: ['', Validators.required],
-  });
-  sextoFormGroup = this.formBuilder.group({
-    seisCtrl: ['', Validators.required],
-  });
-  setimoFormGroup = this.formBuilder.group({
-    seteCtrl: ['', Validators.required],
-  });
-  oitavoFormGroup = this.formBuilder.group({
-    oitoCtrl: ['', Validators.required],
-  });
+  curriculoForm: FormGroup;
   isLinear = false;
   selected = '';
 
@@ -42,13 +20,31 @@ export class CurriculoAddComponent implements OnInit {
     private curriculo: CurriculoService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.curriculoForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      cpf: ['', [Validators.required, CpfValidator.cpfValido]],
+      datanasc: ['', Validators.required],
+      email: ['', Validators.required],
+      telefone: ['', Validators.required],
+      escolaridade: ['', Validators.required],
+      funcao: ['', Validators.required],
+      competencias: ['', Validators.required],
+    });
+  }
 
   voltarHome(): void {
+    this.curriculo.mostraMsg('Operação cancelada');
     this.route.navigate(['/home']);
   }
 
   criaCurriculo(): void {
-    this.curriculo.mostraMsg('Currículo adicionado com sucesso');
+    if (this.curriculoForm.valid) {
+      this.curriculo.criaCurriculo(this.curriculoForm.value).subscribe(() => {
+        this.curriculo.mostraMsg('Currículo adicionado com sucesso');
+        this.route.navigate(['/curriculos']);
+      });
+    }
+    console.log(this.curriculoForm);
   }
 }

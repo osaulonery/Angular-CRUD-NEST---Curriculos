@@ -6,6 +6,11 @@
   margin-top: 16px;
 }
 
-.fora {
-  width: 85%;
+.competencia {
+  width: 60%;
+}
+
+.enviaBtn {
+  background-color: #3fb543;
+  color: #fff;
 }
