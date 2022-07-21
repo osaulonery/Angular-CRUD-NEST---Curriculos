@@ -1,0 +1,29 @@
+.example-form {
+  width: 200px;
+}
+
+.button {
+  margin-left: 10px;
+  padding: 5 0 5 0;
+}
+.um {
+  display: flex;
+}
+
+.tabela {
+  margin-top: 35px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: auto;
+}

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
+import { CurriculoViewComponent } from './component/curriculo-view/curriculo-view.component';
 import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curriculo-add.component';
 import { CurriculoComponent } from './curriculo/curriculo.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'curriculo/create',
     component: CurriculoAddComponent,
+  },
+  {
+    path: 'curriculo/admin',
+    component: AdminComponent,
+  },
+  {
+    path: 'curriculo/view',
+    component: CurriculoViewComponent,
   },
 ];
 

@@ -12,6 +12,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   admin(): void {
-    this.route.navigate(['/home']);
+    this.route.navigate(['/curriculo/admin']);
   }
 }

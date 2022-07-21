@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
 
 //Parada do preço
 import localePt from '@angular/common/locales/pt';
@@ -17,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curriculo-add.component';
+import { AdminComponent } from './admin/admin.component';
+import { CurriculoViewComponent } from './component/curriculo-view/curriculo-view.component';
 
 //MAT
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,8 +39,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
-
-import { NgxMaskModule } from 'ngx-mask';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 registerLocaleData(localePt);
 
@@ -50,6 +52,8 @@ registerLocaleData(localePt);
     NavComponent,
     LoginComponent,
     CurriculoAddComponent,
+    AdminComponent,
+    CurriculoViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ registerLocaleData(localePt);
     HttpClientModule,
     MatSelectModule,
     NgxMaskModule.forRoot(),
+    MatTooltipModule,
   ],
   providers: [
     {
