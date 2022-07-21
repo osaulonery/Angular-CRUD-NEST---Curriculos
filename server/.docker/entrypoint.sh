@@ -1,5 +1,4 @@
 #!/bin/bash
-
-npm install
-npm run build
-npm run start:dev
+yarn install
+yarn run build
+yarn run start:dev

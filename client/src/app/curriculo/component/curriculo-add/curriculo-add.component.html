@@ -38,9 +38,13 @@
       <ng-template matStepLabel>Data de Nascimento</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Data de Nascimento</mat-label>
-        <input matInput formControlName="datanasc" [matDatepicker]="picker" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <input
+          matInput
+          mask="00/00/0000"
+          placeholder="  /  /    "
+          formControlName="datanasc"
+          required
+        />
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Voltar</button>
@@ -144,7 +148,12 @@
         <button mat-button matStepperPrevious (click)="voltarHome()">
           Voltar
         </button>
-        <button class="enviaBtn" mat-button (click)="criaCurriculo()">
+        <button
+          class="enviaBtn"
+          mat-button
+          [disabled]="!curriculoForm.valid"
+          (click)="enviaForm()"
+        >
           Enviar
         </button>
       </div>

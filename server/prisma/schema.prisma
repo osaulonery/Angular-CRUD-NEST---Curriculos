@@ -13,10 +13,10 @@ datasource db {
 model Curriculo {
   id             Int          @id @default(autoincrement())
   name           String       @unique
-  cpf            Int          @unique
+  cpf            String       @unique
   datanasc       String     
   email          String       @unique
-  telefone       Int
+  telefone       String
   escolaridade   String
   funcao         String
   competencias   String

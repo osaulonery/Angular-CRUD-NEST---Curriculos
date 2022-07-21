@@ -1,12 +1,4 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  Max,
-  Min,
-  MinLength,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 
 export class CreateCurriculoDto {
   @IsNotEmpty()
@@ -15,10 +7,8 @@ export class CreateCurriculoDto {
   name: string;
 
   @IsNotEmpty()
-  @IsNumber()
-  @Min(10000000000)
-  @Max(99999999999)
-  cpf: number;
+  @IsString()
+  cpf: string;
 
   @IsNotEmpty()
   @IsString()
@@ -29,8 +19,8 @@ export class CreateCurriculoDto {
   email: string;
 
   @IsNotEmpty()
-  @IsNumber()
-  telefone: number;
+  @IsString()
+  telefone: string;
 
   @IsNotEmpty()
   @IsString()

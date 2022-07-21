@@ -3,7 +3,7 @@ CREATE TABLE "curriculo" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "cpf" INTEGER NOT NULL,
-    "datanasc" TEXT NOT NULL,
+    "datanasc" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
     "telefone" INTEGER NOT NULL,
     "escolaridade" TEXT NOT NULL,

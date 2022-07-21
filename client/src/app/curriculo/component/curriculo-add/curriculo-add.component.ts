@@ -33,18 +33,18 @@ export class CurriculoAddComponent implements OnInit {
     });
   }
 
-  voltarHome(): void {
-    this.curriculo.mostraMsg('Operação cancelada');
-    this.route.navigate(['/home']);
-  }
-
-  criaCurriculo(): void {
+  enviaForm() {
     if (this.curriculoForm.valid) {
       this.curriculo.criaCurriculo(this.curriculoForm.value).subscribe(() => {
         this.curriculo.mostraMsg('Currículo adicionado com sucesso');
         this.route.navigate(['/curriculos']);
       });
+      console.log(this.curriculoForm.value);
     }
-    console.log(this.curriculoForm);
+  }
+
+  voltarHome(): void {
+    this.curriculo.mostraMsg('Operação cancelada');
+    this.route.navigate(['/home']);
   }
 }
