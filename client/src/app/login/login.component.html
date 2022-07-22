@@ -1,30 +1,21 @@
-<form class="login-form">
+<div class="login">
   <h1>Login</h1>
-  <div class="form-input-material">
-    <input
-      type="text"
-      name="username"
-      id="username"
-      placeholder=" "
-      autocomplete="off"
-      class="form-control-material"
-      required
-    />
-    <label for="username">Username</label>
-  </div>
-  <div class="form-input-material">
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder=" "
-      autocomplete="off"
-      class="form-control-material"
-      required
-    />
-    <label for="password">Password</label>
-  </div>
-  <button type="submit" class="btn btn-primary btn-ghost" (click)="admin()">
+  <mat-form-field appearance="fill">
+    <mat-label>Usuário</mat-label>
+    <input matInput placeholder="Insira seu usuário" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input matInput placeholder="Insira sua senha" required />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    class="loginBtn"
+    matTooltip="Apenas administradores"
+    (click)="admin()"
+  >
     Login
   </button>
-</form>
+</div>

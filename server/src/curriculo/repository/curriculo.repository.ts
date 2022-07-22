@@ -20,7 +20,17 @@ export class CurriculoRepository {
     return await this.prisma.curriculo.findMany();
   }
 
-  async findOne(id: number): Promise<CurriculoEntity> {
+  async findCpf(cpf: string): Promise<CurriculoEntity[]> {
+    return await this.prisma.curriculo.findMany({
+      where: {
+        cpf: {
+          equals: cpf,
+        },
+      },
+    });
+  }
+
+  async findById(id: number): Promise<CurriculoEntity> {
     return await this.prisma.curriculo.findUnique({
       where: {
         id,

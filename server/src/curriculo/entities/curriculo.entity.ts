@@ -10,4 +10,5 @@ export class CurriculoEntity implements Curriculo {
   escolaridade: string;
   funcao: string;
   competencias: string;
+  status: string = 'Aguardando';
 }

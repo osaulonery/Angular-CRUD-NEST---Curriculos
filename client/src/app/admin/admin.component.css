@@ -10,4 +10,26 @@ table {
 td,
 th {
   width: auto;
+  padding: auto;
+}
+
+i {
+  cursor: pointer;
+}
+
+.mat-column-acao {
+  flex-direction: row-reverse;
+}
+
+#aprovar {
+  color: #3fb543;
+}
+
+#reprovar {
+  margin-left: 3px;
+  color: #cd1b1b;
+}
+
+#deletar {
+  color: #6a6a6a;
 }

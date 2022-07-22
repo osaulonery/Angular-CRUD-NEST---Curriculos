@@ -8,4 +8,5 @@ export interface Curriculo {
   escolaridade: string;
   funcao: string;
   competencias: string;
+  status: string;
 }

@@ -30,6 +30,7 @@ export class CurriculoAddComponent implements OnInit {
       escolaridade: ['', Validators.required],
       funcao: ['', Validators.required],
       competencias: ['', Validators.required],
+      status: ['Aguardando', Validators.required],
     });
   }
 

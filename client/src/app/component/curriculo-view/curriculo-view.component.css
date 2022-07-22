@@ -1,11 +1,8 @@
-.example-form {
-  width: 200px;
+.button {
+  margin-left: 50px;
+  margin: 15px 0 15px 22px;
 }
 
-.button {
-  margin-left: 10px;
-  padding: 5 0 5 0;
-}
 .um {
   display: flex;
 }
@@ -26,4 +23,12 @@ table {
 td,
 th {
   width: auto;
+}
+
+#edit {
+  color: #e29e16;
+}
+
+#delete {
+  color: #cd1b1b;
 }

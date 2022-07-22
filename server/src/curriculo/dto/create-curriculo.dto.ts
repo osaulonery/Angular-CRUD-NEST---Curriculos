@@ -35,4 +35,7 @@ export class CreateCurriculoDto {
   @IsString()
   @MinLength(10)
   competencias: string;
+
+  @IsString()
+  status: string = 'Aguardando';
 }

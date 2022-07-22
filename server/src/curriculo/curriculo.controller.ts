@@ -25,9 +25,14 @@ export class CurriculoController {
     return this.curriculoService.findAll();
   }
 
+  @Get(':cpf')
+  findCpf(@Param('cpf') cpf: string) {
+    return this.curriculoService.findCpf(cpf);
+  }
+
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.curriculoService.findOne(+id);
+  findById(@Param('id') id: number) {
+    return this.curriculoService.findById(id);
   }
 
   @Patch(':id')

@@ -8,7 +8,7 @@ import { Curriculo } from '../curriculo.model';
   providedIn: 'root',
 })
 export class CurriculoService {
-  baseUrl = 'http://localhost:3000/curriculo';
+  baseUrl = 'http://localhost:3000/curriculo/';
 
   constructor(private snack: MatSnackBar, private http: HttpClient) {}
 
@@ -34,6 +34,28 @@ export class CurriculoService {
 
   lerCurriculo(): Observable<Curriculo[]> {
     return this.http.get<Curriculo[]>(this.baseUrl).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  lerCurriculoPorId(id: number): Observable<Curriculo> {
+    return this.http.get<Curriculo>(this.baseUrl + id).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  lerCurriculoPorCpf(cpf: string): Observable<Curriculo[]> {
+    return this.http.get<Curriculo>(this.baseUrl + cpf).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  deletaCurriculo(id: string): Observable<Curriculo> {
+    const url = `${this.baseUrl}${id}`;
+    return this.http.delete<Curriculo>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

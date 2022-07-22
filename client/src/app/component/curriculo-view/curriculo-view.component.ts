@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { CurriculoService } from 'src/app/curriculo/component/curriculo.service';
 import { Curriculo } from 'src/app/curriculo/curriculo.model';
 
 @Component({
@@ -17,13 +19,32 @@ export class CurriculoViewComponent implements OnInit {
     'escolaridade',
     'funcao',
     'competencias',
-    'actionadm',
+    'status',
   ];
 
   dataSource: MatTableDataSource<Curriculo>;
-  constructor() {}
+  cpf: string;
+  curriculos: Curriculo[] = [];
+
+  constructor(
+    private http: HttpClient,
+    private curriculoService: CurriculoService
+  ) {
+    this.dataSource = new MatTableDataSource(this.curriculos);
+  }
 
   ngOnInit(): void {}
 
-  acharCurriculoCpf() {}
+  acharCurriculoCpf() {
+    this.curriculoService
+      .lerCurriculoPorCpf(this.cpf)
+      .subscribe((curriculos) => {
+        this.dataSource.data = curriculos;
+      });
+    console.log(this.cpf);
+  }
+
+  deletaCurriculo() {}
+
+  editaCurriculo() {}
 }
