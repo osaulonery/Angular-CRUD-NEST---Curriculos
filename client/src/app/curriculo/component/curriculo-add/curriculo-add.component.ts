@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CpfValidator } from '../../validators/cpf-validator';
-import { CurriculoService } from '../curriculo.service';
+import { CurriculoService } from '../../curriculo.service';
 
 @Component({
   selector: 'app-curriculo-add',

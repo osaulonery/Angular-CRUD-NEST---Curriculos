@@ -1,0 +1,21 @@
+<div class="login">
+  <h1>Login</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Usuário</mat-label>
+    <input matInput placeholder="Insira seu usuário" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input matInput placeholder="Insira sua senha" required />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    class="loginBtn"
+    matTooltip="Apenas administradores"
+    (click)="admin()"
+  >
+    Login
+  </button>
+</div>

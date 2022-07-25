@@ -1,0 +1,162 @@
+<form [formGroup]="curriculoForm">
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [completed]="false">
+      <ng-template matStepLabel>Nome Completo</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome Completo</mat-label>
+        <input
+          matInput
+          placeholder="Nome completo"
+          formControlName="name"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>CPF</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input
+          matInput
+          mask="000.000.000-00"
+          formControlName="cpf"
+          placeholder="   .   .   -  "
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Data de Nascimento</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Data de Nascimento</mat-label>
+        <input
+          matInput
+          mask="00/00/0000"
+          placeholder="  /  /    "
+          formControlName="datanasc"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Email</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Digite seu email"
+          formControlName="email"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Telefone</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          mask="(00)00000.0000"
+          placeholder="(85)98888.7777"
+          formControlName="telefone"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Escolaridade</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Escolaridade</mat-label>
+        <mat-select formControlName="escolaridade">
+          <mat-option value="Analfabeto">Analfabeto</mat-option>
+          <mat-option value="Fundamental Completo"
+            >Fundamental Completo</mat-option
+          >
+          <mat-option value="Médio Incompleto">Médio Incompleto</mat-option>
+          <mat-option value="Médio Completo">Médio Completo</mat-option>
+          <mat-option value="Superior Incompleto"
+            >Superior Incompleto</mat-option
+          >
+          <mat-option value="Superior Completo">Superior Completo</mat-option>
+          <mat-option value="Mestrado">Mestrado</mat-option>
+          <mat-option value="Doutorado">Doutorado</mat-option>
+          <mat-option value="Ignorado">Ignorado</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Função</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Função</mat-label>
+        <input
+          matInput
+          placeholder="Função"
+          formControlName="funcao"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Competências</ng-template>
+      <mat-form-field appearance="outline" class="competencia">
+        <mat-label>Competências</mat-label>
+        <textarea
+          matInput
+          rows="5"
+          placeholder="Digite para cada competência um nível de proficiência: (A) - Avançado, (I) - Intermediário, (B) - Básico"
+          formControlName="competencias"
+        ></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Envie o currículo</ng-template>
+      <div>
+        <button mat-button matStepperPrevious (click)="voltarHome()">
+          Voltar
+        </button>
+        <button
+          class="enviaBtn"
+          mat-button
+          [disabled]="!curriculoForm.valid"
+          (click)="updateForm()"
+        >
+          Atualizar
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>

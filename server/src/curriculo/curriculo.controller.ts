@@ -31,8 +31,8 @@ export class CurriculoController {
   }
 
   @Get(':id')
-  findById(@Param('id') id: number) {
-    return this.curriculoService.findById(id);
+  findId(@Param('id') id: string) {
+    return this.curriculoService.findId(+id);
   }
 
   @Patch(':id')

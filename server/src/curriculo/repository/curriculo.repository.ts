@@ -30,7 +30,7 @@ export class CurriculoRepository {
     });
   }
 
-  async findById(id: number): Promise<CurriculoEntity> {
+  async findId(id: number): Promise<CurriculoEntity> {
     return await this.prisma.curriculo.findUnique({
       where: {
         id,

@@ -1,0 +1,28 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  background-color: #3fb543;
+  padding: 15px;
+  margin-top: 0px;
+  position: fixed;
+  z-index: 2;
+}
+
+.cadastro {
+  margin-left: 9px;
+  color: #fff;
+}
+
+a {
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.material-icons {
+  margin-right: 9px;
+}

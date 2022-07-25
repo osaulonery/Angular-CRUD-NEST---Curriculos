@@ -1,0 +1,36 @@
+.button {
+  margin-left: 50px;
+  margin: 15px 0 15px 22px;
+}
+
+.um {
+  display: flex;
+}
+
+.tabela {
+  margin-top: 35px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: auto;
+}
+
+#edit {
+  color: #e29e16;
+  cursor: pointer;
+}
+
+#delete {
+  color: #cd1b1b;
+  cursor: pointer;
+}

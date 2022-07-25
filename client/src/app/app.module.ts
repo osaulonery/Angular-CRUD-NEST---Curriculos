@@ -12,14 +12,15 @@ import { registerLocaleData } from '@angular/common';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './curriculo/template/header/header.component';
 import { CurriculoComponent } from './curriculo/curriculo.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './curriculo/template/home/home.component';
+import { NavComponent } from './curriculo/template/nav/nav.component';
+import { LoginComponent } from './curriculo/template/login/login.component';
 import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curriculo-add.component';
-import { AdminComponent } from './admin/admin.component';
-import { CurriculoViewComponent } from './component/curriculo-view/curriculo-view.component';
+import { AdminComponent } from './curriculo/component/admin/admin.component';
+import { CurriculoViewComponent } from './curriculo/component/curriculo-view/curriculo-view.component';
+import { CurriculoUpdateComponent } from './curriculo/component/curriculo-update/curriculo-update.component';
 
 //MAT
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -54,6 +55,7 @@ registerLocaleData(localePt);
     CurriculoAddComponent,
     AdminComponent,
     CurriculoViewComponent,
+    CurriculoUpdateComponent,
   ],
   imports: [
     BrowserModule,

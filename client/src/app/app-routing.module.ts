@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './admin/admin.component';
-import { CurriculoViewComponent } from './component/curriculo-view/curriculo-view.component';
+import { AdminComponent } from './curriculo/component/admin/admin.component';
+import { CurriculoUpdateComponent } from './curriculo/component/curriculo-update/curriculo-update.component';
+import { CurriculoViewComponent } from './curriculo/component/curriculo-view/curriculo-view.component';
 import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curriculo-add.component';
 import { CurriculoComponent } from './curriculo/curriculo.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './curriculo/template/home/home.component';
+import { LoginComponent } from './curriculo/template/login/login.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'curriculo/view',
     component: CurriculoViewComponent,
+  },
+  {
+    path: 'curriculo/update/:id',
+    component: CurriculoUpdateComponent,
   },
 ];
 
