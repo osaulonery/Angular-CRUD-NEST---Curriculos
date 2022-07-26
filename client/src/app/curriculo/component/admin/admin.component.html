@@ -1,5 +1,11 @@
+<div class="dash">
+  <button class="btnDash" mat-raised-button (click)="botaoDashboard()">
+    DASHBOARD
+  </button>
+</div>
+
 <mat-form-field appearance="standard">
-  <mat-label>Filter</mat-label>
+  <mat-label>Filtro de Candidatos</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
 </mat-form-field>
 
@@ -62,7 +68,7 @@
     <!-- Status Column -->
     <ng-container matColumnDef="status" class="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-      <td [(ngModel)]="status" mat-cell *matCellDef="let row">
+      <td mat-cell *matCellDef="let row">
         {{ row.status }}
       </td>
     </ng-container>
@@ -74,8 +80,10 @@
         <i id="aprovar" class="material-icons" (click)="aprovado(row)"
           >check_circle</i
         >
-        <i id="reprovar" class="material-icons" (click)="reprovado()">cancel</i>
-        <i id="deletar" class="material-icons" (click)="deletar()"
+        <i id="reprovar" class="material-icons" (click)="reprovado(row.id)"
+          >cancel</i
+        >
+        <i id="deletar" class="material-icons" (click)="deletar(row.id)"
           >delete_forever</i
         >
       </td>
@@ -86,14 +94,12 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">
-        No data matching the filter "{{ input.value }}"
-      </td>
+      <td class="mat-cell" colspan="4">CPF não encontrado {{ input.value }}</td>
     </tr>
   </table>
 
   <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSizeOptions]="[10, 25, 100]"
     aria-label="Select page of users"
   ></mat-paginator>
 </div>

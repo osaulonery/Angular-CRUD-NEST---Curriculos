@@ -52,18 +52,22 @@ export class AdminComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  botaoDashboard() {
+    this.route.navigate(['/curriculo/admin/dashboard']);
+  }
+
   aprovado(status: Curriculo) {
     console.log('aprovado');
   }
 
-  reprovado() {
-    console.log('reprovado');
+  reprovado(status: Curriculo) {
+    this.curriculo.status = 'Reprovado';
+    this.curriculoService.editaCurriculo(status).subscribe((curriculo) => {});
   }
 
-  deletar() {
-    this.curriculoService.deletaCurriculo(this.curriculo.id).subscribe(() => {
+  deletar(id: number) {
+    this.curriculoService.deletaCurriculo(id).subscribe(() => {
       this.curriculoService.mostraMsg('Currículo excluído');
-      this.route.navigate(['/curriculo/admin']);
     });
   }
 

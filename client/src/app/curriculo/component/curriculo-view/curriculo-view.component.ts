@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CurriculoService } from 'src/app/curriculo/curriculo.service';
 import { Curriculo } from 'src/app/curriculo/curriculo.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-curriculo-view',
@@ -26,10 +27,12 @@ export class CurriculoViewComponent implements OnInit {
   dataSource: MatTableDataSource<Curriculo>;
   cpf: string;
   curriculos: Curriculo[] = [];
+  curriculo: Curriculo;
 
   constructor(
     private http: HttpClient,
-    private curriculoService: CurriculoService
+    private curriculoService: CurriculoService,
+    private route: Router
   ) {
     this.dataSource = new MatTableDataSource(this.curriculos);
   }
@@ -44,5 +47,10 @@ export class CurriculoViewComponent implements OnInit {
       });
   }
 
-  deletaCurriculo() {}
+  deletaCurriculo(id: number) {
+    this.curriculoService.deletaCurriculo(id).subscribe(() => {
+      this.curriculoService.mostraMsg('Currículo excluído');
+      this.route.navigate(['/curriculo/admin']);
+    });
+  }
 }

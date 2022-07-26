@@ -38,9 +38,8 @@ export class CurriculoAddComponent implements OnInit {
     if (this.curriculoForm.valid) {
       this.curriculo.criaCurriculo(this.curriculoForm.value).subscribe(() => {
         this.curriculo.mostraMsg('Currículo adicionado com sucesso');
-        this.route.navigate(['/curriculos']);
+        this.route.navigate(['/curriculo/view']);
       });
-      console.log(this.curriculoForm.value);
     }
   }
 

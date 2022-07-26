@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CurriculoService } from 'src/app/curriculo/curriculo.service';
-import { Curriculo } from 'src/app/curriculo/curriculo.model';
-import { CpfValidator } from 'src/app/curriculo/validators/cpf-validator';
+import { Curriculo } from '../../curriculo.model';
+import { CpfValidator } from '../../validators/cpf-validator';
 
 @Component({
   selector: 'app-curriculo-update',
@@ -14,27 +14,20 @@ import { CpfValidator } from 'src/app/curriculo/validators/cpf-validator';
 export class CurriculoUpdateComponent implements OnInit {
   curriculoForm: FormGroup;
   isLinear = false;
-  curriculoUpdate: Curriculo;
   dataSource: MatTableDataSource<Curriculo>;
-  curriculos: Curriculo[] = [];
+  curriculoEdit: Curriculo;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
-    private curriculo: CurriculoService,
-    private activeRoute: ActivatedRoute
+    private curriculoService: CurriculoService
   ) {
-    this.dataSource = new MatTableDataSource(this.curriculos);
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
-    const id = this.activeRoute.snapshot.paramMap.get('id');
-    this.curriculo.lerCurriculoPorId(+id).subscribe((curriculoUpdate) => {
-      this.curriculoUpdate = curriculoUpdate;
-    });
-
     this.curriculoForm = this.formBuilder.group({
-      name: [this.curriculoForm.value.name, Validators.required],
+      name: ['', Validators.required],
       cpf: ['', [Validators.required, CpfValidator.cpfValido]],
       datanasc: ['', Validators.required],
       email: ['', Validators.required],
@@ -48,15 +41,17 @@ export class CurriculoUpdateComponent implements OnInit {
 
   updateForm() {
     if (this.curriculoForm.valid) {
-      this.curriculo.editaCurriculo(this.curriculoUpdate).subscribe(() => {
-        this.curriculo.mostraMsg('Currículo atualizado com sucesso');
-        this.route.navigate(['/curriculos']);
-      });
+      this.curriculoService
+        .editaCurriculo(this.curriculoForm.value)
+        .subscribe(() => {
+          this.curriculoService.mostraMsg('Currículo atualizado com sucesso');
+          this.route.navigate(['/curriculos']);
+        });
     }
   }
 
   voltarHome(): void {
-    this.curriculo.mostraMsg('Operação cancelada');
+    this.curriculoService.mostraMsg('Operação cancelada');
     this.route.navigate(['/home']);
   }
 }

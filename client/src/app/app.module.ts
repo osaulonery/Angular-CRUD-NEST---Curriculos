@@ -21,6 +21,7 @@ import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curri
 import { AdminComponent } from './curriculo/component/admin/admin.component';
 import { CurriculoViewComponent } from './curriculo/component/curriculo-view/curriculo-view.component';
 import { CurriculoUpdateComponent } from './curriculo/component/curriculo-update/curriculo-update.component';
+import { DashboardComponent } from './curriculo/component/dashboard/dashboard.component';
 
 //MAT
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -41,6 +42,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgChartsModule } from 'ng2-charts';
+import { GraficoBarraComponent } from './curriculo/component/dashboard/grafico-barra/grafico-barra.component';
+import { GraficoPizzaComponent } from './curriculo/component/dashboard/grafico-pizza/grafico-pizza.component';
 
 registerLocaleData(localePt);
 
@@ -56,6 +60,9 @@ registerLocaleData(localePt);
     AdminComponent,
     CurriculoViewComponent,
     CurriculoUpdateComponent,
+    DashboardComponent,
+    GraficoBarraComponent,
+    GraficoPizzaComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,7 @@ registerLocaleData(localePt);
     NgxMaskModule.forRoot(),
     MatTooltipModule,
     FormsModule,
+    NgChartsModule,
   ],
   providers: [
     {

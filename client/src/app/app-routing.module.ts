@@ -7,6 +7,9 @@ import { CurriculoAddComponent } from './curriculo/component/curriculo-add/curri
 import { CurriculoComponent } from './curriculo/curriculo.component';
 import { HomeComponent } from './curriculo/template/home/home.component';
 import { LoginComponent } from './curriculo/template/login/login.component';
+import { DashboardComponent } from './curriculo/component/dashboard/dashboard.component';
+import { GraficoBarraComponent } from './curriculo/component/dashboard/grafico-barra/grafico-barra.component';
+import { GraficoPizzaComponent } from './curriculo/component/dashboard/grafico-pizza/grafico-pizza.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'curriculo/update/:id',
     component: CurriculoUpdateComponent,
+  },
+  {
+    path: 'curriculo/admin/dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'curriculo/admin/dashboard/escolaridade',
+    component: GraficoBarraComponent,
+  },
+  {
+    path: 'curriculo/admin/dashboard/status',
+    component: GraficoPizzaComponent,
   },
 ];
 

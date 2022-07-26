@@ -9,6 +9,7 @@ import { Curriculo } from './curriculo.model';
 })
 export class CurriculoService {
   baseUrl = 'http://localhost:3000/curriculo/';
+  curriculo: Curriculo;
 
   constructor(private snack: MatSnackBar, private http: HttpClient) {}
 
@@ -61,7 +62,7 @@ export class CurriculoService {
     );
   }
 
-  deletaCurriculo(id: string): Observable<Curriculo> {
+  deletaCurriculo(id: number): Observable<Curriculo> {
     const url = `${this.baseUrl}${id}`;
     return this.http.delete<Curriculo>(url).pipe(
       map((obj) => obj),

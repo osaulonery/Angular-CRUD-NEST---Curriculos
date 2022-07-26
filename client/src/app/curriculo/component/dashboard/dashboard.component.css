@@ -1,0 +1,19 @@
+.graficos {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.barra {
+  margin-left: 0;
+  width: 50%;
+}
+
+.pizza {
+  margin-right: 0;
+  width: 50%;
+}
+
+.btnUpdate {
+  align-items: center;
+}
