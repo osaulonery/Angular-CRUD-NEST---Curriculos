@@ -14,8 +14,3 @@
   background-color: #3fb543;
   color: #fff;
 }
-
-::ng-deep .mat-vertical-stepper-content {
-  visibility: visible !important;
-  height: 100% !important;
-}

@@ -30,6 +30,11 @@ export class CurriculoController {
     return this.curriculoService.findEscolaridade();
   }
 
+  @Get('/status')
+  findStatus() {
+    return this.curriculoService.findStatus();
+  }
+
   @Get(':cpf')
   findCpf(@Param('cpf') cpf: string) {
     return this.curriculoService.findCpf(cpf);

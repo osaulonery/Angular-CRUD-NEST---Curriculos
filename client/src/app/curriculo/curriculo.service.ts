@@ -76,4 +76,11 @@ export class CurriculoService {
       catchError((e) => this.errorHandler(e))
     );
   }
+
+  status(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + 'status').pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
 }

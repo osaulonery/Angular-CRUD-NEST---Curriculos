@@ -59,6 +59,25 @@ export class CurriculoService {
     return escolaridadeData;
   }
 
+  async findStatus() {
+    var status: any[] = await this.CurriculoRepo.findAll();
+    var statusData = [
+      {
+        name: 'Aguardando',
+        value: this.contador('Aguardando', 'status', status),
+      },
+      {
+        name: 'Aprovado',
+        value: this.contador('Aprovado', 'status', status),
+      },
+      {
+        name: 'Reprovado',
+        value: this.contador('Reprovado', 'status', status),
+      },
+    ];
+    return statusData;
+  }
+
   findCpf(cpf: string) {
     return this.CurriculoRepo.findCpf(cpf);
   }
