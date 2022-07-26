@@ -26,7 +26,7 @@ export class CurriculoController {
   }
 
   @Get('/escolaridade')
-  findEscolardade() {
+  findEscolaridade() {
     return this.curriculoService.findEscolaridade();
   }
 

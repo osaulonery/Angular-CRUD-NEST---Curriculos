@@ -56,8 +56,9 @@ export class AdminComponent implements OnInit {
     this.route.navigate(['/curriculo/admin/dashboard']);
   }
 
-  aprovado(status: Curriculo) {
-    console.log('aprovado');
+  aprovado(row: Curriculo) {
+    row.status = 'Aprovado';
+    this.curriculoService.editaCurriculo(row).subscribe(() => {});
   }
 
   reprovado(row: Curriculo) {
