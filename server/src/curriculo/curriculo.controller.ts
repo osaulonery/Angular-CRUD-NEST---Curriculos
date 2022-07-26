@@ -3,9 +3,9 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { CurriculoService } from './curriculo.service';
 import { CreateCurriculoDto } from './dto/create-curriculo.dto';
@@ -25,6 +25,11 @@ export class CurriculoController {
     return this.curriculoService.findAll();
   }
 
+  @Get('/escolaridade')
+  findEscolardade() {
+    return this.curriculoService.findEscolaridade();
+  }
+
   @Get(':cpf')
   findCpf(@Param('cpf') cpf: string) {
     return this.curriculoService.findCpf(cpf);
@@ -35,7 +40,7 @@ export class CurriculoController {
     return this.curriculoService.findId(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(
     @Param('id') id: string,
     @Body() updateCurriculoDto: UpdateCurriculoDto,

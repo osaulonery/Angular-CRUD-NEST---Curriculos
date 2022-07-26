@@ -60,9 +60,9 @@ export class AdminComponent implements OnInit {
     console.log('aprovado');
   }
 
-  reprovado(status: Curriculo) {
-    this.curriculo.status = 'Reprovado';
-    this.curriculoService.editaCurriculo(status).subscribe((curriculo) => {});
+  reprovado(row: Curriculo) {
+    row.status = 'Reprovado';
+    this.curriculoService.editaCurriculo(row).subscribe((curriculo) => {});
   }
 
   deletar(id: number) {

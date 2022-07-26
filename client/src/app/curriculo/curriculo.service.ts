@@ -21,16 +21,16 @@ export class CurriculoService {
     });
   }
 
+  errorHandler(e: any): Observable<any> {
+    this.mostraMsg('Erro!!!', true);
+    return EMPTY;
+  }
+
   criaCurriculo(curriculo: Curriculo) {
     return this.http.post<Curriculo>(this.baseUrl, curriculo).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
-  }
-
-  errorHandler(e: any): Observable<any> {
-    this.mostraMsg('Erro!!!', true);
-    return EMPTY;
   }
 
   lerCurriculo(): Observable<Curriculo[]> {
@@ -65,6 +65,13 @@ export class CurriculoService {
   deletaCurriculo(id: number): Observable<Curriculo> {
     const url = `${this.baseUrl}${id}`;
     return this.http.delete<Curriculo>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  escolaridade(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl + 'escolaridade').pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

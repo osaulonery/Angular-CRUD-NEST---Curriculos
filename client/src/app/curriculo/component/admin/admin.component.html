@@ -80,7 +80,7 @@
         <i id="aprovar" class="material-icons" (click)="aprovado(row)"
           >check_circle</i
         >
-        <i id="reprovar" class="material-icons" (click)="reprovado(row.id)"
+        <i id="reprovar" class="material-icons" (click)="reprovado(row)"
           >cancel</i
         >
         <i id="deletar" class="material-icons" (click)="deletar(row.id)"
@@ -94,7 +94,7 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">CPF não encontrado {{ input.value }}</td>
+      <td class="mat-cell" colspan="4">Não encontrado {{ input.value }}</td>
     </tr>
   </table>
 

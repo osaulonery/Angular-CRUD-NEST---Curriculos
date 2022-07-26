@@ -3,7 +3,6 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { CurriculoService } from 'src/app/curriculo/curriculo.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-grafico-barra',
@@ -12,36 +11,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GraficoBarraComponent implements OnInit {
   curriculos = [];
-  escolaridadeData = [];
+  escolaridadeData: any[];
 
-  constructor(
-    private curriculoService: CurriculoService,
-    private http: HttpClient
-  ) {}
+  constructor(private curriculoService: CurriculoService) {}
 
-  ngOnInit(): void {}
-
-  contador(valor: string, campo: string): number {
-    const filtroCurriculo = this.curriculos.filter(
-      (e: any) => e[campo] === valor
-    );
-    return filtroCurriculo.length;
+  ngOnInit(): void {
+    this.curriculoService.escolaridade().subscribe((res) => {
+      this.escolaridadeData = res;
+      this.barChartData.datasets[0].data = res.map((e) => e.value);
+      this.chart.update();
+    });
   }
-
-  //   this.barChartData = [
-  //     {
-  //       name: 'Analfabeto',
-  //       value: this.contarValor('Analfabeto', 'escolaridade'),
-  //     },
-  //   ];
-  // }
-
-  // contarValor(valor: string, campo: string): number {
-  //   const filtroCurriculo = this.curriculos.filter(
-  //     (e: any) => e[campo] === valor
-  //   );
-  //   return filtroCurriculo.length;
-  // }
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -52,9 +32,7 @@ export class GraficoBarraComponent implements OnInit {
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
       x: {},
-      y: {
-        min: 1,
-      },
+      y: {},
     },
     plugins: {
       legend: {
@@ -83,7 +61,7 @@ export class GraficoBarraComponent implements OnInit {
 
     datasets: [
       {
-        data: [2, 3, 5, 3, 2, 2, 3, 4, 9],
+        data: [],
         backgroundColor: '#5fcfcb',
         hoverBackgroundColor: '#5fcfcb',
       },

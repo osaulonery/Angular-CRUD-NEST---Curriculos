@@ -42,6 +42,8 @@ export class CurriculoRepository {
     id: number,
     updateCurriculoDto: UpdateCurriculoDto,
   ): Promise<CurriculoEntity> {
+    delete updateCurriculoDto.id;
+    console.log(updateCurriculoDto);
     return await this.prisma.curriculo.update({
       where: {
         id,
