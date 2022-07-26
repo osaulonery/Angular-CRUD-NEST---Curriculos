@@ -7,10 +7,14 @@
 }
 
 .competencia {
-  width: 60%;
+  width: 45%;
 }
 
 .enviaBtn {
   background-color: #3fb543;
   color: #fff;
+}
+
+.voltarBtn {
+  margin-right: 9px;
 }
