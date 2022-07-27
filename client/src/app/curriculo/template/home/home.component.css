@@ -22,3 +22,8 @@ button {
   font-size: 20px;
   line-height: 40px;
 }
+
+.addBtn {
+  background-color: #3fb543;
+  color: #fff;
+}

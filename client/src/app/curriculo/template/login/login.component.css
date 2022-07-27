@@ -1,5 +1,6 @@
 .login {
   display: flex;
+  position: fixed;
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -11,7 +12,7 @@
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 20px;
   color: #000;
 }
 

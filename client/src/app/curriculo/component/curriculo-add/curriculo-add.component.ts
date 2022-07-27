@@ -22,14 +22,14 @@ export class CurriculoAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.curriculoForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       cpf: ['', [Validators.required, CpfValidator.cpfValido]],
       datanasc: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       telefone: ['', Validators.required],
       escolaridade: ['', Validators.required],
-      funcao: ['', Validators.required],
-      competencias: ['', Validators.required],
+      funcao: ['', [Validators.required, Validators.minLength(3)]],
+      competencias: ['', [Validators.required, Validators.minLength(10)]],
       status: ['Aguardando', Validators.required],
     });
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Curriculo } from '@prisma/client';
 import { CreateCurriculoDto } from './dto/create-curriculo.dto';
 import { UpdateCurriculoDto } from './dto/update-curriculo.dto';
 import { CurriculoRepository } from './repository/curriculo.repository';
@@ -17,7 +18,7 @@ export class CurriculoService {
   }
 
   async findEscolaridade() {
-    var curriculo: any[] = await this.CurriculoRepo.findAll();
+    var curriculo: Curriculo[] = await this.CurriculoRepo.findAll();
     var escolaridadeData = [
       {
         name: 'Analfabeto',
@@ -60,7 +61,7 @@ export class CurriculoService {
   }
 
   async findStatus() {
-    var status: any[] = await this.CurriculoRepo.findAll();
+    var status: Curriculo[] = await this.CurriculoRepo.findAll();
     var statusData = [
       {
         name: 'Aguardando',

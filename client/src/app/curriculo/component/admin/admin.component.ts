@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { CurriculoService } from '../../curriculo.service';
 import { Curriculo } from '../../curriculo.model';
 import { Subscription } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -30,35 +29,27 @@ export class AdminComponent implements OnInit {
   dataSource: MatTableDataSource<Curriculo>;
   curriculo: Curriculo;
   curriculos: Curriculo[] = [];
-  subscricao: Subscription;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private curriculoService: CurriculoService,
-    private route: Router,
-    private checaMudanca: ChangeDetectorRef
+    private route: Router
   ) {
     this.dataSource = new MatTableDataSource(this.curriculos);
   }
 
-  ngOnDestroy() {
-    this.subscricao.unsubscribe();
-  }
-
   ngOnInit(): void {
-    this.subscricao = this.curriculoService
-      .lerCurriculo()
-      .subscribe((curriculos) => {
-        this.curriculos = curriculos;
-        this.dataSource.data = this.curriculos;
-      });
+    this.mostraCurriculos();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  mostraCurriculos() {
+    this.curriculoService.lerCurriculo().subscribe((curriculos) => {
+      this.dataSource.data = curriculos;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   botaoDashboard() {
@@ -77,8 +68,8 @@ export class AdminComponent implements OnInit {
 
   deletar(id: number) {
     this.curriculoService.deletaCurriculo(id).subscribe(() => {
+      this.mostraCurriculos();
       this.curriculoService.mostraMsg('Currículo excluído');
-      this.checaMudanca.detectChanges();
     });
   }
 

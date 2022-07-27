@@ -16,6 +16,10 @@ export class GraficoBarraComponent implements OnInit {
   constructor(private curriculoService: CurriculoService) {}
 
   ngOnInit(): void {
+    this.barDados();
+  }
+
+  barDados() {
     this.curriculoService.escolaridade().subscribe((res) => {
       this.escolaridadeData = res;
       this.barChartData.datasets[0].data = res.map((e) => e.value);

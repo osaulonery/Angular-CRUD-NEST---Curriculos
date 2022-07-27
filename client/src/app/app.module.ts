@@ -1,10 +1,12 @@
 //MODULES
-import { ChangeDetectorRef, LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgChartsModule } from 'ng2-charts';
 
 //Parada do preço
 import localePt from '@angular/common/locales/pt';
@@ -13,7 +15,6 @@ import { registerLocaleData } from '@angular/common';
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './curriculo/template/header/header.component';
-import { CurriculoComponent } from './curriculo/curriculo.component';
 import { HomeComponent } from './curriculo/template/home/home.component';
 import { NavComponent } from './curriculo/template/nav/nav.component';
 import { LoginComponent } from './curriculo/template/login/login.component';
@@ -22,6 +23,8 @@ import { AdminComponent } from './curriculo/component/admin/admin.component';
 import { CurriculoViewComponent } from './curriculo/component/curriculo-view/curriculo-view.component';
 import { CurriculoUpdateComponent } from './curriculo/component/curriculo-update/curriculo-update.component';
 import { DashboardComponent } from './curriculo/component/dashboard/dashboard.component';
+import { GraficoBarraComponent } from './curriculo/component/dashboard/grafico-barra/grafico-barra.component';
+import { GraficoPizzaComponent } from './curriculo/component/dashboard/grafico-pizza/grafico-pizza.component';
 
 //MAT
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -31,7 +34,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -42,9 +44,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { NgChartsModule } from 'ng2-charts';
-import { GraficoBarraComponent } from './curriculo/component/dashboard/grafico-barra/grafico-barra.component';
-import { GraficoPizzaComponent } from './curriculo/component/dashboard/grafico-pizza/grafico-pizza.component';
 
 registerLocaleData(localePt);
 
@@ -52,7 +51,6 @@ registerLocaleData(localePt);
   declarations: [
     AppComponent,
     HeaderComponent,
-    CurriculoComponent,
     HomeComponent,
     NavComponent,
     LoginComponent,

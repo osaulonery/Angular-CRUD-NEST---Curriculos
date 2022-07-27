@@ -14,12 +14,17 @@ export class GraficoPizzaComponent implements OnInit {
   constructor(private curriculoService: CurriculoService) {}
 
   ngOnInit(): void {
+    this.pizzaDados();
+  }
+
+  pizzaDados() {
     this.curriculoService.status().subscribe((res) => {
       this.statusData = res;
       this.pieChartData.datasets[0].data = res.map((e) => e.value);
       this.chart.update();
     });
   }
+
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   // Pie
