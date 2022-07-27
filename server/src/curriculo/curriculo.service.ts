@@ -82,12 +82,8 @@ export class CurriculoService {
     return this.CurriculoRepo.findCpf(cpf);
   }
 
-  findId(id: number) {
-    return this.CurriculoRepo.findId(id);
-  }
-
-  update(id: number, updateCurriculoDto: UpdateCurriculoDto) {
-    return this.CurriculoRepo.update(id, updateCurriculoDto);
+  update(cpf: string, updateCurriculoDto: UpdateCurriculoDto) {
+    return this.CurriculoRepo.update(cpf, updateCurriculoDto);
   }
 
   remove(id: number) {

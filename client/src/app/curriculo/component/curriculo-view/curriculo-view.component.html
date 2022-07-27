@@ -96,10 +96,10 @@
 
       <!-- Acao Column -->
       <ng-container matColumnDef="acao" class="acao">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
         <td class="botoes" mat-cell *matCellDef="let row">
           <i
-            routerLink="/curriculo/update/{{ row.id }}"
+            routerLink="/curriculo/update/{{ row.cpf }}"
             id="edit"
             class="material-icons"
             >edit</i

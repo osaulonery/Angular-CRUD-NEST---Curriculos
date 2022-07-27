@@ -1,7 +1,7 @@
 import { Curriculo } from '@prisma/client';
 
 export class CurriculoEntity implements Curriculo {
-  id: number;
+  id?: number;
   name: string;
   cpf: string;
   datanasc: string;

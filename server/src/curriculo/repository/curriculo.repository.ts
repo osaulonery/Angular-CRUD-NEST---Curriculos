@@ -30,21 +30,21 @@ export class CurriculoRepository {
     });
   }
 
-  async findId(id: number): Promise<CurriculoEntity> {
+  async findCpfEdit(cpf: string): Promise<CurriculoEntity> {
     return await this.prisma.curriculo.findUnique({
       where: {
-        id,
+        cpf,
       },
     });
   }
 
   async update(
-    id: number,
+    cpf: string,
     updateCurriculoDto: UpdateCurriculoDto,
   ): Promise<CurriculoEntity> {
     return await this.prisma.curriculo.update({
       where: {
-        id,
+        cpf,
       },
       data: updateCurriculoDto,
     });

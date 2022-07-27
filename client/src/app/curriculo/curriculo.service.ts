@@ -9,6 +9,7 @@ import { Curriculo } from './curriculo.model';
 })
 export class CurriculoService {
   baseUrl = 'http://localhost:3000/curriculo/';
+  cpfUrl = 'http://localhost:3000/curriculo/update/';
   curriculo: Curriculo;
 
   constructor(private snack: MatSnackBar, private http: HttpClient) {}
@@ -55,7 +56,7 @@ export class CurriculoService {
   }
 
   editaCurriculo(curriculo: Curriculo): Observable<Curriculo> {
-    const url = `${this.baseUrl}${curriculo.id}`;
+    const url = `${this.cpfUrl}${curriculo.cpf}`;
     return this.http.put<Curriculo>(url, curriculo).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

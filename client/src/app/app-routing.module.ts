@@ -37,7 +37,7 @@ const routes: Routes = [
     component: CurriculoViewComponent,
   },
   {
-    path: 'curriculo/update/:id',
+    path: 'curriculo/update/:cpf',
     component: CurriculoUpdateComponent,
   },
   {

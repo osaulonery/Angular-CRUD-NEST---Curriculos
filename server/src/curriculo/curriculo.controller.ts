@@ -40,21 +40,21 @@ export class CurriculoController {
     return this.curriculoService.findCpf(cpf);
   }
 
-  @Get(':id')
-  findId(@Param('id') id: string) {
-    return this.curriculoService.findId(+id);
-  }
-
-  @Put(':id')
+  @Put('/update/:cpf')
   update(
-    @Param('id') id: string,
+    @Param('cpf') cpf: string,
     @Body() updateCurriculoDto: UpdateCurriculoDto,
   ) {
-    return this.curriculoService.update(+id, updateCurriculoDto);
+    return this.curriculoService.update(cpf, updateCurriculoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.curriculoService.remove(+id);
+  }
+
+  @Get('/edit/:cpf')
+  findCpfEdit(@Param('cpf') cpf: string) {
+    return this.curriculoService.findCpf(cpf);
   }
 }

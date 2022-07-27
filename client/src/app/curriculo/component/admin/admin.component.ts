@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CurriculoService } from '../../curriculo.service';
 import { Curriculo } from '../../curriculo.model';
+import { Subscription } from 'rxjs';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -28,23 +30,30 @@ export class AdminComponent implements OnInit {
   dataSource: MatTableDataSource<Curriculo>;
   curriculo: Curriculo;
   curriculos: Curriculo[] = [];
-  status: string;
+  subscricao: Subscription;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private curriculoService: CurriculoService,
-    private route: Router
+    private route: Router,
+    private checaMudanca: ChangeDetectorRef
   ) {
     this.dataSource = new MatTableDataSource(this.curriculos);
   }
 
+  ngOnDestroy() {
+    this.subscricao.unsubscribe();
+  }
+
   ngOnInit(): void {
-    this.curriculoService.lerCurriculo().subscribe((curriculos) => {
-      this.curriculos = curriculos;
-      this.dataSource.data = this.curriculos;
-    });
+    this.subscricao = this.curriculoService
+      .lerCurriculo()
+      .subscribe((curriculos) => {
+        this.curriculos = curriculos;
+        this.dataSource.data = this.curriculos;
+      });
   }
 
   ngAfterViewInit() {
@@ -63,12 +72,13 @@ export class AdminComponent implements OnInit {
 
   reprovado(row: Curriculo) {
     row.status = 'Reprovado';
-    this.curriculoService.editaCurriculo(row).subscribe((curriculo) => {});
+    this.curriculoService.editaCurriculo(row).subscribe(() => {});
   }
 
   deletar(id: number) {
     this.curriculoService.deletaCurriculo(id).subscribe(() => {
       this.curriculoService.mostraMsg('Currículo excluído');
+      this.checaMudanca.detectChanges();
     });
   }
 

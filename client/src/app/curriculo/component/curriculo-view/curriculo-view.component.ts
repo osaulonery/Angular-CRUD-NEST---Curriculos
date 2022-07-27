@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { CurriculoService } from 'src/app/curriculo/curriculo.service';
 import { Curriculo } from 'src/app/curriculo/curriculo.model';
@@ -30,7 +30,6 @@ export class CurriculoViewComponent implements OnInit {
   curriculo: Curriculo;
 
   constructor(
-    private http: HttpClient,
     private curriculoService: CurriculoService,
     private route: Router
   ) {
@@ -50,7 +49,7 @@ export class CurriculoViewComponent implements OnInit {
   deletaCurriculo(id: number) {
     this.curriculoService.deletaCurriculo(id).subscribe(() => {
       this.curriculoService.mostraMsg('Currículo excluído');
-      this.route.navigate(['/curriculo/admin']);
+      this.route.navigate(['/curriculo/view']);
     });
   }
 }
